@@ -133,6 +133,7 @@ env[PAGON_ENV] = production
 ### 如果是lighttpd
 
 '''
+
 $HTTP["host"] =~ "(^www\.xxxxxxx\.com)$" {
     server.document-root = "/网站根目录"
     accesslog.use-syslog = "enable"
@@ -141,6 +142,7 @@ $HTTP["host"] =~ "(^www\.xxxxxxx\.com)$" {
                 "^/(.*)$" => "/index.php/$1"
              )
 }
+
 '''
 
 
