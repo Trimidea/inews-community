@@ -130,6 +130,20 @@ FPM配置添加环境变量
 env[PAGON_ENV] = production
 ```
 
+### 如果是lighttpd
+
+'''
+$HTTP["host"] =~ "(^www\.xxxxxxx\.com)$" {
+    server.document-root = "/网站根目录"
+    accesslog.use-syslog = "enable"
+    url.rewrite-once = ( 
+                "^/static/(.*)$" => "/static/$1",  #static目录下不进行rewrite
+                "^/(.*)$" => "/index.php/$1"
+             )
+}
+'''
+
+
 问题
 -----
 
