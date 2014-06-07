@@ -10,8 +10,8 @@ class Url
         $embed = array();
         if (preg_match('/http:\/\/v.youku.com\/v_show\/id_([a-zA-Z0-9]+).html/', $url, $m)) {
             $embed = array(
-                'type' => 'swf',
-                'url'  => 'http://player.youku.com/player.php/sid/' . $m[1] . '/v.swf'
+                'type' => 'html',
+                'url'  => 'http://player.youku.com/embed/' . $m[1] . ''
             );
         }
 
@@ -24,8 +24,8 @@ class Url
         if (!$embed) return;
 
         switch ($embed['type']) {
-            case 'swf':
-                return '<embed src="' . $embed['url'] . '" allowFullScreen="true" quality="high" width="610" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash" wmode="transparent"></embed>';
+            case 'html':
+                return '<iframe src="' . $embed['url'] . '" height=498 width=510 ></iframe>';
                 break;
         }
 
